@@ -25,7 +25,7 @@ var column = 30;
 var error = new Error('uhoh');
 
 test('uhoh - only callback', function(t) {
-  t.plan(5);
+  t.plan(6);
 
   uhoh(function(payload, err) {
     t.equal(error, err);
@@ -36,6 +36,8 @@ test('uhoh - only callback', function(t) {
   });
 
   window.onerror(message, script, line, column, error);
+
+  t.equal(elements.length, 0);
 });
 
 test('uhoh - only url', function(t) {

@@ -14,12 +14,15 @@
       onError = window.onerror;
     }
 
-    img = img || document.createElement('img');
+    var doLog = typeof path === 'string';
+
+    if (doLog) {
+      img = img || document.createElement('img');
+    }
 
     var callback;
     if (typeof path === 'function') {
       callback = path;
-      path = null;
     } else if (opt_callback) {
       callback = opt_callback;
     } else {
@@ -37,8 +40,10 @@
       if (err instanceof Error) {
         payload.stack = err.stack;
       }
-
-      img.setAttribute('src', path + '?error=' + encodeURIComponent(JSON.stringify(payload)));
+      
+      if (doLog) {
+        img.setAttribute('src', path + '?error=' + encodeURIComponent(JSON.stringify(payload)));
+      }
 
       if (typeof onError === 'function') {
         onError.apply(this, arguments);
