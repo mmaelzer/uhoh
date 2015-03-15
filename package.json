@@ -1,0 +1,31 @@
+{
+  "name": "uhoh",
+  "version": "1.0.0",
+  "description": "A client to server error logger",
+  "main": "uhoh.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./test/uhoh-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmaelzer/uhoh"
+  },
+  "keywords": [
+    "error",
+    "log",
+    "logger",
+    "browser"
+  ],
+  "author": "Mike Maelzer <mmaelzer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmaelzer/uhoh/issues"
+  },
+  "homepage": "https://github.com/mmaelzer/uhoh",
+  "devDependencies": {
+    "tape": "^3.5.0"
+  }
+}
