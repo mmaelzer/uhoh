@@ -15,7 +15,6 @@ var start = module.exports.start = function(script) {
   if (server) return endpoint;
 
   server = http.createServer(function(req, res) {
-    console.log('requst:', req.url);
     if (/log/.test(req.url)) {
       if (errorCallback) {
         var paths = req.url.split('?');
@@ -25,9 +24,7 @@ var start = module.exports.start = function(script) {
       }
       res.end();
     } else if (/js/.test(req.url)) {
-      console.log('reading file...');
       fs.readFile(path.join(__dirname, '../uhoh.js'), function(err, data) {
-        if (err) console.log(err);
         res.writeHead(200, {'Content-Type': 'text/javascript'});
         res.end(data);
       });
