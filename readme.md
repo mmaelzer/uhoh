@@ -3,6 +3,8 @@ uhoh
 
 A browser to server unhandled exception logger. Supports CommonJS/AMD/VanillaJS.
 
+[![build status](https://secure.travis-ci.org/mmaelzer/uhoh.png)](http://travis-ci.org/mmaelzer/uhoh)
+
 Install
 -------
 ```bash
@@ -17,8 +19,7 @@ Example
   uhoh('/logs');
 </script>
 ```
-
-After that, `uhoh` will send `GET` requests to the `/logs` route with the following format:
+After that, `uhoh` will catch unhandled exceptions and send `GET` requests to the `/logs` route with erros in the following format:
 ```
 /logs?error=%7B%22message%22%3A%22Uncaught%20Error%3A%20uh%20oh%22%2C%22script%22%3A%22http%3A%2F%2Flocalhost%3A3000%2F%22%2C%22line%22%3A3%2C%22column%22%3A9%2C%22stack%22%3A%22Error%3A%20uh%20oh%5Cn%20%20%20%20at%20http%3A%2F%2Flocalhost%3A3000%2F%3A3%3A9%5Cn%20%20%20%20at%20http%3A%2F%2Flocalhost%3A3000%2F%3A4%3A3%22%7D
 ```
@@ -33,7 +34,63 @@ Where the error value is just `encodeURIComponent(JSON.stringify(errorObject))`.
 }
 ```
 
-The existence of keys/values in the error object are dependent upon browser support. For example, IE10 and below will not provide a `stack` value.
+The existence of keys/values in the error object are dependent upon browser support.
+
+
+More Examples
+-------------
+```javascript
+var uhoh = require('uhoh');
+/**
+ * Call uhoh without arguments:
+ * uhoh will make GET requests to /logs when an unhandled
+ * exception occurs
+ */
+uhoh();
+```
+
+```javascript
+/**
+ * Call uhoh with a route:
+ * uhoh will make GET requests to the provied route
+ */
+uhoh('/my-logs-path');
+```
+
+```javascript
+define(['uhoh'], functon(uhoh) {
+  /**
+   * Call uhoh with a callback:
+   * uhoh will not make requests to the server, but will
+   * callback with an object and an optional error
+   */
+  uhoh(function(info, err) {
+    /**
+     *  info looks like:
+     *  {
+     *    message: {string}, // error message
+     *    script: {string},  // filename of script file where the error occurred
+     *    line: {number},    // the line number where the error occurred
+     *    column: {number},  // the column number where the error occurred
+     *    stack: {string}    // the stack trace
+     *  }
+     *  err (if available) is an instanceof Error
+     *  
+     *  Some values will not be provided depending on what the browser supports
+     */
+  });
+});
+```
+
+```javascript
+/**
+ * Call uhoh with a route and callback
+ */
+uhoh('/my-log-route', function(info, err) {
+  // Maybe do things with info or err
+});
+```
+
 
 Tests
 -----
@@ -41,11 +98,6 @@ Tests
 $ npm install
 $ npm test
 ```
-
-TODO
-----
-* Hook up Travis CI to run tests
-* Add Bower support
 
 The MIT License
 ===============

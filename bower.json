@@ -1,0 +1,31 @@
+{
+  "name": "uhoh",
+  "main": "uhoh.js",
+  "version": "1.0.1",
+  "homepage": "https://github.com/mmaelzer/uhoh",
+  "authors": [
+    "Mike Maelzer <mmaelzer@gmail.com>"
+  ],
+  "description": "A client to server error logger",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "log",
+    "logging",
+    "logger",
+    "sentry",
+    "error",
+    "errors"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
