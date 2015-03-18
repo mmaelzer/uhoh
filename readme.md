@@ -11,13 +11,13 @@ Install
 ### npm
 
 ```bash
-$ npm install uhoh
+npm install uhoh
 ```
 
 ### bower
 
 ```bash
-$ bower install uhoh
+bower install uhoh
 ```
 
 Example
