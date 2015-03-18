@@ -52,7 +52,7 @@ uhoh();
 ```javascript
 /**
  * Call uhoh with a route:
- * uhoh will make GET requests to the provied route
+ * uhoh will make GET requests to the provided route on unhandled exceptions
  */
 uhoh('/my-logs-path');
 ```
@@ -61,7 +61,7 @@ uhoh('/my-logs-path');
 define(['uhoh'], functon(uhoh) {
   /**
    * Call uhoh with a callback:
-   * uhoh will not make requests to the server, but will
+   * uhoh will not make requests to the server but will
    * callback with an object and an optional error
    */
   uhoh(function(info, err) {
