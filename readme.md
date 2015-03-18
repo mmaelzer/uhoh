@@ -7,8 +7,17 @@ A browser to server unhandled exception logger. Supports CommonJS/AMD/VanillaJS.
 
 Install
 -------
+
+### npm
+
 ```bash
 $ npm install uhoh
+```
+
+### bower
+
+```bash
+$ bower install uhoh
 ```
 
 Example
