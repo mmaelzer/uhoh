@@ -28,7 +28,7 @@ Example
   uhoh('/logs');
 </script>
 ```
-After that, `uhoh` will catch unhandled exceptions and send `GET` requests to the `/logs` route with erros in the following format:
+After that, `uhoh` will catch unhandled exceptions and send `GET` requests to the `/logs` route with errors in the following format:
 ```
 /logs?error=%7B%22message%22%3A%22Uncaught%20Error%3A%20uh%20oh%22%2C%22script%22%3A%22http%3A%2F%2Flocalhost%3A3000%2F%22%2C%22line%22%3A3%2C%22column%22%3A9%2C%22stack%22%3A%22Error%3A%20uh%20oh%5Cn%20%20%20%20at%20http%3A%2F%2Flocalhost%3A3000%2F%3A3%3A9%5Cn%20%20%20%20at%20http%3A%2F%2Flocalhost%3A3000%2F%3A4%3A3%22%7D
 ```
