@@ -48,6 +48,7 @@ The existence of keys/values in the error object are dependent upon browser supp
 
 More Examples
 -------------
+#### CommonJS + no arguments
 ```javascript
 var uhoh = require('uhoh');
 /**
@@ -57,7 +58,7 @@ var uhoh = require('uhoh');
  */
 uhoh();
 ```
-
+#### Global + relative path to logging endpoint
 ```javascript
 /**
  * Call uhoh with a route:
@@ -66,8 +67,9 @@ uhoh();
 uhoh('/my-logs-path');
 ```
 
+#### require.js/AMD + callback
 ```javascript
-define(['uhoh'], functon(uhoh) {
+define(['uhoh'], function(uhoh) {
   /**
    * Call uhoh with a callback:
    * uhoh will not make requests to the server but will
@@ -91,6 +93,7 @@ define(['uhoh'], functon(uhoh) {
 });
 ```
 
+#### Global + relative path to logging endpoint + callback
 ```javascript
 /**
  * Call uhoh with a route and callback
