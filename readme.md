@@ -3,8 +3,6 @@ uhoh
 
 A browser to server unhandled exception logger. Supports CommonJS/AMD/VanillaJS.
 
-[![build status](https://secure.travis-ci.org/mmaelzer/uhoh.png)](http://travis-ci.org/mmaelzer/uhoh)
-
 Install
 -------
 
